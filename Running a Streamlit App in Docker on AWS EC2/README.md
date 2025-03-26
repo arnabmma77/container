@@ -112,7 +112,7 @@ Set the correct permissions:
 ```sh
 chmod 600 your-key.pem
 ```
-![Screenshot](/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/1.jpg)
+![image alt](https://github.com/arnabmma77/container/blob/main/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/Screenshot%20(163).png?raw=true)
 
 ## 5️⃣ Installing and Configuring Docker on EC2
 
@@ -124,7 +124,7 @@ Install Docker:
 ```sh
 sudo yum install -y docker
 ```
-![Screenshot](/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/2.jpg)
+![image alt](https://github.com/arnabmma77/container/blob/main/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/Screenshot%20(166).png?raw=true)
 
 Enable and start Docker:
 ```sh
@@ -134,7 +134,7 @@ sudo systemctl enable docker
 ```sh
 sudo systemctl start docker
 ```
-![Screenshot](/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/3.jpg)
+![image alt](https://github.com/arnabmma77/container/blob/main/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/Screenshot%20(168).png?raw=true)
 
 ## 6️⃣ Copying Project Files to EC2
 
@@ -142,7 +142,7 @@ Transfer files using SCP:
 ```sh
 scp -i your-key.pem app.py Dockerfile requirements.txt mushroom.cv ec2-user@your-ec2-public-ip:/home/ec2-user/
 ```
-![Screenshot](/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/4.jpg)
+![image alt](https://github.com/arnabmma77/container/blob/main/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/Screenshot%20(167).png?raw=true)
 
 ## 7️⃣ Building and Running the Docker Container
 
@@ -158,7 +158,7 @@ Run the container:
 ```sh
 sudo docker run -d -p 8501:8501 --name streamlit_container streamlit-app
 ```
-![Screenshot](/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/5.jpg)
+![image alt](https://github.com/arnabmma77/container/blob/main/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/Screenshot%20(165).png?raw=true)
 
 ## 8️⃣ Accessing the Streamlit App
 
@@ -168,7 +168,7 @@ http://your-ec2-public-ip:8501
 ```
 The Streamlit app should now be accessible.
 
-![Screenshot](/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/6.jpg)
+![image alt](https://github.com/arnabmma77/container/blob/main/Running%20a%20Streamlit%20App%20in%20Docker%20on%20AWS%20EC2/images/Screenshot%20(174).png?raw=true)
 
 ## 9️⃣ Managing the Docker Container
 
