@@ -1,0 +1,15 @@
+students:
+  - name: Alice
+    age: 22
+    major: Computer Science
+    gpa: 3.8
+
+  - name: Bob
+    age: 21
+    major: Mathematics
+    gpa: 3.2
+
+  - name: Charlie
+    age: 23
+    major: Physics
+    gpa: 3.9
