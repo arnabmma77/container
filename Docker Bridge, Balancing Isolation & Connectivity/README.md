@@ -36,9 +36,11 @@ Verify network creation:
 ```sh
 docker network ls
 ```
+![image alt](https://github.com/arnabmma77/container/blob/main/Docker%20Bridge,%20Balancing%20Isolation%20&%20Connectivity/Screenshot%20(190).png?raw=true)
 ✅ *Expected Output:* The list should include `net-bridge` under the `bridge` driver.
 
 ---
+
 
 ## 🏗 Step 2: Run Containers & Attach to the Network
 
@@ -46,12 +48,14 @@ docker network ls
 ```sh
 docker run -itd --net=net-bridge --name=cont_database redis
 ```
+![image alt][https://github.com/arnabmma77/container/blob/main/Docker%20Bridge,%20Balancing%20Isolation%20&%20Connectivity/Screenshot%20(191).png?raw=true]
 🔹 *This runs a Redis container in detached mode and attaches it to `net-bridge`.*
 
 ### 🌍 Run a Server Container (BusyBox)
 ```sh
 docker run -dit --name server-A --network net-bridge busybox
 ```
+![image alt][https://github.com/arnabmma77/container/blob/main/Docker%20Bridge,%20Balancing%20Isolation%20&%20Connectivity/Screenshot%20(192).png?raw=true]
 🔹 *This launches a lightweight BusyBox container in interactive mode.*
 
 ---
@@ -74,6 +78,7 @@ docker inspect cont_database
 ```sh
 docker inspect --format "{{range .NetworkSettings.Networks}}{{.IPAddress}} {{end}}" cont_database
 ```
+![image alt][https://github.com/arnabmma77/container/blob/main/Docker%20Bridge,%20Balancing%20Isolation%20&%20Connectivity/Screenshot%20(193).png?raw=true]
 🔹 *Use the extracted IP address for direct communication testing.*
 
 ---
@@ -90,12 +95,14 @@ docker exec -it server-A sh
 ```sh
 ping 172.20.240.1  # Replace with actual container IP
 ```
+![image alt][https://github.com/arnabmma77/container/blob/main/Docker%20Bridge,%20Balancing%20Isolation%20&%20Connectivity/Screenshot%20(194).png?raw=true]
 ✅ *Successful ping confirms communication via IP.*
 
 ### 📡 Ping Another Container Using Container Name
 ```sh
 ping cont_database
 ```
+![image alt][https://github.com/arnabmma77/container/blob/main/Docker%20Bridge,%20Balancing%20Isolation%20&%20Connectivity/Screenshot%20(195).png?raw=true]
 🔹 *Checks if Docker's built-in DNS resolves container names.*
 
 ⚠️ *Note: BusyBox may not always support name resolution due to its minimal nature.*
