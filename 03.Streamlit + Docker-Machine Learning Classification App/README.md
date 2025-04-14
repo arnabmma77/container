@@ -45,14 +45,14 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-![alt text](image-1.png)
+
 
 Then, open your browser and go to:
 ```bash
 http://localhost:8501
 ```
 
-![alt text](image-2.png)
+![alt text](https://github.com/arnabmma77/container/blob/main/03.Streamlit%20+%20Docker-Machine%20Learning%20Classification%20App/mlapp.png?raw=true)
 
 ### **2️⃣ Running Inside a Docker Container**
 To containerize and launch the app:
@@ -61,14 +61,14 @@ docker build -t streamlit-ml-app .
 docker run -p 8501:8501 streamlit-ml-app
 ```
 
-![alt text](image-3.png)
+
 
 Then, access the app via:
 ```bash
 http://localhost:8501
 ```
 
-![alt text](image-4.png)
+![alt text](https://github.com/arnabmma77/container/blob/main/03.Streamlit%20+%20Docker-Machine%20Learning%20Classification%20App/mlapp.png?raw=true)
 
 ### **3️⃣ Debugging with Docker Compose**
 Enable remote debugging by running:
