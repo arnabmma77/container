@@ -163,7 +163,7 @@ packer validate bakery.pkr.hcl
 
 ✅ Expected Output: The configuration is valid.
 
-![Screenshot](/Bakery%20Foundation%20on%20Windows/images/Screenshot%202025-03-20%20011135.png)
+![Screenshot](https://github.com/arnabmma77/container/blob/main/Bakery%20Foundation%20on%20Windows/images/Screenshot%20(200).png?raw=true)
 
 ### 3.2 Build the Machine Image
 
@@ -189,7 +189,7 @@ This will:
 2. Navigate to **EC2 → AMIs** (Set the region you used when creating the AMI).
 3. Find the AMI named: bakery-foundation-python39-timestamp
 
-![Screenshot](/Bakery%20Foundation%20on%20Windows/images/Screenshot%202025-03-20%20011612.png)
+![Screenshot](https://github.com/arnabmma77/container/blob/main/Bakery%20Foundation%20on%20Windows/images/Screenshot%20(201).png?raw=true)
 
 ### 4.2 Launch an EC2 Instance with Your AMI
 
@@ -202,7 +202,7 @@ This will:
    - **Security Group**: Allow **SSH (port 22)** and other required ports.
 5. Click **Launch**! 🚀
 
-![Screenshot](/Bakery%20Foundation%20on%20Windows/images/Screenshot%202025-03-20%20011811.png)
+![Screenshot](https://github.com/arnabmma77/container/blob/main/Bakery%20Foundation%20on%20Windows/images/Screenshot%20(202).png?raw=true)
 
 ### 4.3 Connect to the Instance
 
@@ -227,7 +227,8 @@ python3.9 --version
 
 ✅ Expected Output:
 
-![Screenshot](/Bakery%20Foundation%20on%20Windows/images/Screenshot%202025-03-20%20030112.png)
+Python 3.9.0
+
 
 ## Default Ubuntu Python Version
 
