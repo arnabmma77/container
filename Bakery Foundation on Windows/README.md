@@ -163,7 +163,7 @@ packer validate bakery.pkr.hcl
 
 ✅ Expected Output: The configuration is valid.
 
-![Screenshot](https://github.com/arnabmma77/container/blob/main/Bakery%20Foundation%20on%20Windows/images/Screenshot%20(200).png?raw=true)
+
 
 ### 3.2 Build the Machine Image
 
@@ -179,8 +179,7 @@ This will:
 - Convert it into an **Amazon Machine Image (AMI)**.
 - Delete the temporary instance.
 
-![Screenshot](/Bakery%20Foundation%20on%20Windows/images/Screenshot%202025-03-20%20011212.png)
-![Screenshot](/Bakery%20Foundation%20on%20Windows/images/Screenshot%202025-03-20%20011235.png)
+![Screenshot](https://github.com/arnabmma77/container/blob/main/Bakery%20Foundation%20on%20Windows/images/Screenshot%20(200).png?raw=true)
 
 ## Step 4: Deploy and Test the AMI
 
