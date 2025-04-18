@@ -134,7 +134,7 @@ docker run -p 8501:8501 evidently-streamlit
 ### 3️⃣ Access the Streamlit App
 
 Open [http://localhost:8501](http://localhost:8501) in your browser.
-![screenshot](/Evidently%20AI-streamlit%20app/assets/Screenshot%202025-03-26%20060036.png)
+![screenshot](https://github.com/arnabmma77/container/blob/main/Evidently%20AI-streamlit%20app/assets/Screenshot%20(161).png?raw=true)
 ---
 
 ## 🎯 Features
