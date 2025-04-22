@@ -39,7 +39,7 @@ docker build -t mysql-db .
 docker run --name mysql-container -d -p 3306:3306 mysql-db
 ```
 
-![alt text](image-1.png)
+
 
 This will:
 - Build a MySQL Docker image named `mysql-db`.
@@ -61,7 +61,7 @@ SHOW TABLES;
 SELECT * FROM students;
 ```
 
-![alt text](image-2.jpg)
+![alt text](https://github.com/arnabmma77/container/blob/main/dockersql/image-2.jpg?raw=true)
 
 ### **3️⃣ Stopping and Removing the Container**
 To stop the running container:
