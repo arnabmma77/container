@@ -83,7 +83,9 @@ fileWatcherType = "poll"
 docker build -t streamlit-visualization:v1.0 .
 docker run -p 8501:8501 --name my-visualization streamlit-visualization
 ```
+![Alt text](https://github.com/arnabmma77/container/blob/main/Streamlit-Visualization-App/Screenshot%20(215).png?raw=true)
 
+![Alt text](https://github.com/arnabmma77/container/blob/main/Streamlit-Visualization-App/Screenshot%20(218).png?raw=true)
 #### 🔧 Troubleshooting
 
 -   **Port Conflict?** Use `-p 8502:8501` to change the port.
@@ -113,4 +115,4 @@ Enhance the app by adding:
 📜 **License**
 MIT License - Free to use, modify, and share!
 
-Made by Raghav Agarwal 🚀
+Made by Arnab Mukherjee 🚀
