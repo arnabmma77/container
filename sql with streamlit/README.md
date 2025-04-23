@@ -45,7 +45,7 @@ This starts a PostgreSQL container with authentication settings.
 
 ### Step 4: Access PostgreSQL
 ```sh
-docker exec -it my_postgres_container psql -U ansh -d testdb
+docker exec -it my_postgres_container psql -U ARNAB -d testdb
 ```
 
 ### Step 5: Create the `passengers` Table
@@ -60,7 +60,7 @@ CREATE TABLE passengers (
 ### Step 6: Insert Sample Data
 ```sql
 INSERT INTO passengers (name, location)
-VALUES ('Ansh', 'Panwar'), ('Maanav', 'Singh'), ('Raghav', 'Agarwal');
+VALUES ('ARNAB', 'MUKHERJEE'), ('Maanav', 'Singh'), ('Raghav', 'Agarwal');
 ```
 
 ---
@@ -114,6 +114,13 @@ Open a browser and navigate to:
 👉 **http://localhost:8501**
 
 You should see the list of passengers displayed in the app.
+![Alt text](path/to/image.png)
+![Alt text](path/to/image.png)
+![Alt text](path/to/image.png)
+![Alt text](path/to/image.png)
+![Alt text](path/to/image.png)
+![Alt text](path/to/image.png)
+![Alt text](path/to/image.png)
 
 ---
 
