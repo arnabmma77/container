@@ -120,8 +120,8 @@ You should see the list of passengers displayed in the app.
 ![Alt text](https://github.com/arnabmma77/container/blob/main/sql%20with%20streamlit/Screenshot%20(230).png?raw=true)
 ![Alt text](https://github.com/arnabmma77/container/blob/main/sql%20with%20streamlit/Screenshot%20(233).png?raw=true)
 ![Screenshot (238)](https://github.com/user-attachments/assets/445498e0-c941-494e-bbe0-6be30baaabfc)
+![WhatsApp Image 2025-04-23 at 4 52 48 PM](https://github.com/user-attachments/assets/63e2fd2a-c25a-4c5c-8d19-42a7235e49ae)
 
-![Alt text](blob:https://web.whatsapp.com/a4e93a81-5ce6-48a3-809b-5f98e658271c)
 
 ---
 
