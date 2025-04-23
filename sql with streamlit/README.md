@@ -1,106 +1,128 @@
- 🐳 Streamlit APP with Docker
+# Deploying a Streamlit App with PostgreSQL in Docker
 
-## 🚀 Prerequisites
+## 📌 Overview
 
-Before setting up the environment, ensure you have the following installed on your machine:
+This project demonstrates how to deploy a Streamlit application that connects to a PostgreSQL database using Docker. The application fetches and displays passenger data stored in PostgreSQL, ensuring a seamless and containerized workflow.
 
-- **Docker** 🐳 (Ensure the Docker daemon is running)
-- **Python 3.9+** 🐍 (Verify installation with `python --version`)
-- **pip** (Ensure it's installed and up to date with `pip --version`)
-- **Basic knowledge of Streamlit** 📊
-
----
-
-## 📂 Directory Structure
+## 📁 Project Structure
 
 ```
-streamlit_app/
-│── .streamlit/
-│   └── config.toml
-│── src/
-│   └── app.py
+Streamlit-Postgres-Docker/
 │── Dockerfile
-│── requirements.txt
-│── README.md
+│── app.py
+```
+
+### 🔹 Description of Files:
+- **app.py** – Streamlit app that connects to PostgreSQL and fetches data.
+- **Dockerfile** – Configuration for containerizing the Streamlit app.
+
+---
+
+## 🛠 Setting Up PostgreSQL in Docker
+
+### Step 1: Pull the PostgreSQL Docker Image
+```sh
+docker pull postgres
+```
+
+### Step 2: Create a Docker Network
+```sh
+docker network create my_postgres_network
+```
+This network allows PostgreSQL and the Streamlit app to communicate.
+
+### Step 3: Run the PostgreSQL Container
+```sh
+docker run --name my_postgres_container --network my_postgres_network \
+-e POSTGRES_USER=ansh -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=testdb \
+-p 5432:5432 -d postgres
+```
+This starts a PostgreSQL container with authentication settings.
+
+---
+
+## 📊 Creating and Populating the Database
+
+### Step 4: Access PostgreSQL
+```sh
+docker exec -it my_postgres_container psql -U ansh -d testdb
+```
+
+### Step 5: Create the `passengers` Table
+```sql
+CREATE TABLE passengers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    location VARCHAR(100)
+);
+```
+
+### Step 6: Insert Sample Data
+```sql
+INSERT INTO passengers (name, location)
+VALUES ('Ansh', 'Panwar'), ('Maanav', 'Singh'), ('Raghav', 'Agarwal');
 ```
 
 ---
 
-## 📜 File Explanations
+## 🎨 Streamlit Application (`app.py`)
 
-### 1️⃣ `.streamlit/config.toml`
-This file configures Streamlit settings for local development.
+This script connects to PostgreSQL, fetches data, and displays it in a Streamlit UI with enhanced styling.
 
-```toml
-[server]
-headless = true
-runOnSave = true
-fileWatcherType = "poll"
-```
+### 🔹 Key Features:
+- Connects to PostgreSQL using `psycopg2`.
+- Retrieves and displays passenger data dynamically.
+- Uses CSS styling to improve the UI.
 
-### 2️⃣ `src/app.py`
-This file contains the core logic of the Streamlit application. It includes:
+---
 
-- **A home page** 🏠 that provides an introduction to the app.
-- **A data explorer** 📊 allowing users to upload and inspect CSV files.
-- **A visualization page** 📈 that generates interactive charts and graphs.
+## 🐳 Dockerizing the Streamlit Application
 
-### 3️⃣ `Dockerfile`
-Defines the containerized environment.
-
+### Step 7: Create a `Dockerfile`
 ```dockerfile
-FROM python:3.9-slim
+FROM python:3.9
 
 WORKDIR /app
 
-COPY requirements.txt /app/
-RUN pip install --no-cache-dir -r requirements.txt
+COPY app.py .
 
-COPY . /app/
+RUN pip install streamlit psycopg2
 
-EXPOSE 8501
-CMD ["streamlit", "run", "src/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
-```
-
-### 4️⃣ `requirements.txt`
-Contains necessary dependencies:
-
-```
-streamlit
-pandas
-numpy
-matplotlib
-plotly
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
 ```
 
 ---
 
-## ⚡ Steps to Run the Project
+## 🚀 Running the Streamlit Application in Docker
 
-### 1️⃣ Navigate to the project directory:
+### Step 8: Build the Docker Image
 ```sh
-cd path/to/streamlit_app
+docker build -t streamlit_app .
 ```
 
-### 2️⃣ Build the Docker image:
+### Step 9: Run the Streamlit Container
 ```sh
-docker build -t streamlit-app .
+docker run --name my_streamlit_container --network my_postgres_network -p 8501:8501 -d streamlit_app
 ```
-
-### 3️⃣ Run the container:
-```sh
-docker run -p 8501:8501 streamlit-app
-```
-
-### 4️⃣ Open in Browser:
-Go to 👉 **http://localhost:8501** 🌐
+This ensures that the Streamlit app can communicate with PostgreSQL.
 
 ---
-![image](https://github.com/user-attachments/assets/90d0d185-742c-43ff-ad06-88228f38e9aa)
 
-![image](https://github.com/user-attachments/assets/ccf81653-9f10-4e83-813b-dde1c9d513d4)
+## 🔗 Access the Application
 
-## 🎯 Conclusion
-You now have a fully functional Streamlit environment running inside Docker! 🚀
+Open a browser and navigate to:
+👉 **http://localhost:8501**
+
+You should see the list of passengers displayed in the app.
+
+---
+
+## 🎯 Summary
+✅ PostgreSQL container stores passenger data.
+✅ Streamlit container fetches and displays data from PostgreSQL.
+✅ Both containers communicate over `my_postgres_network`.
+✅ Application accessible at **http://localhost:8501**.
+
+This project provides a containerized solution for data visualization using Streamlit and PostgreSQL. 🚀
 
 
