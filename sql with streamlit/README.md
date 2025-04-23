@@ -1,68 +1,80 @@
-# Connect PostgreSQL Container to Network Bridge
+Deploying a Streamlit App with PostgreSQL in Docker
+📌 Overview
+This project demonstrates how to deploy a Streamlit application that connects to a PostgreSQL database using Docker. The application fetches and displays passenger data stored in PostgreSQL, ensuring a seamless and containerized workflow.
 
-## Prerequisites
-- Docker installed on your system
-- Basic understanding of Docker networking
+📁 Project Structure
+Streamlit-Postgres-Docker/
+│── Dockerfile
+│── app.py
+🔹 Description of Files:
+app.py – Streamlit app that connects to PostgreSQL and fetches data.
+Dockerfile – Configuration for containerizing the Streamlit app.
+🛠 Setting Up PostgreSQL in Docker
+Step 1: Pull the PostgreSQL Docker Image
+docker pull postgres
+Step 2: Create a Docker Network
+docker network create my_postgres_network
+This network allows PostgreSQL and the Streamlit app to communicate.
 
-## Step 1: Create a Custom Network Bridge
-Docker provides a default bridge network, but it is recommended to create a user-defined bridge network for better control.
+Step 3: Run the PostgreSQL Container
+docker run --name my_postgres_container --network my_postgres_network \
+-e POSTGRES_USER=ansh -e POSTGRES_PASSWORD=secret -e POSTGRES_DB=testdb \
+-p 5432:5432 -d postgres
+This starts a PostgreSQL container with authentication settings.
 
-```sh
-docker network create my_bridge_network
-```
+📊 Creating and Populating the Database
+Step 4: Access PostgreSQL
+docker exec -it my_postgres_container psql -U ansh -d testdb
+Step 5: Create the passengers Table
+CREATE TABLE passengers (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    location VARCHAR(100)
+);
+Step 6: Insert Sample Data
+INSERT INTO passengers (name, location)
+VALUES ('Ansh', 'Panwar'), ('Maanav', 'Singh'), ('Raghav', 'Agarwal');
+🎨 Streamlit Application (app.py)
+This script connects to PostgreSQL, fetches data, and displays it in a Streamlit UI with enhanced styling.
 
-## Step 2: Run PostgreSQL Container with Network Bridge
-Start a PostgreSQL container and connect it to the created network.
+🔹 Key Features:
+Connects to PostgreSQL using psycopg2.
+Retrieves and displays passenger data dynamically.
+Uses CSS styling to improve the UI.
+🐳 Dockerizing the Streamlit Application
+Step 7: Create a Dockerfile
+FROM python:3.9
 
-```sh
-docker run -d \
-  --name my_postgres \
-  --network my_bridge_network \
-  -e POSTGRES_USER=myuser \
-  -e POSTGRES_PASSWORD=mypassword \
-  -e POSTGRES_DB=mydatabase \
-  postgres
-```
+WORKDIR /app
 
-## Step 3: Verify Network Connection
-Check if the PostgreSQL container is connected to the network.
+COPY app.py .
 
-```sh
-docker network inspect my_bridge_network
-```
+RUN pip install streamlit psycopg2
 
-## Step 4: Connect Another Container (e.g., pgAdmin) to the Same Network
-If you want to connect another container (such as pgAdmin) to interact with PostgreSQL, run:
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+🚀 Running the Streamlit Application in Docker
+Step 8: Build the Docker Image
+docker build -t streamlit_app .
+Step 9: Run the Streamlit Container
+docker run --name my_streamlit_container --network my_postgres_network -p 8501:8501 -d streamlit_app
+This ensures that the Streamlit app can communicate with PostgreSQL.
 
-```sh
-docker run -d \
-  --name my_pgadmin \
-  --network my_bridge_network \
-  -e PGADMIN_DEFAULT_EMAIL=admin@example.com \
-  -e PGADMIN_DEFAULT_PASSWORD=adminpassword \
-  -p 80:80 \
-  dpage/pgadmin4
-```
+🔗 Access the Application
+Open a browser and navigate to: 👉 http://localhost:8501
 
-## Step 5: Access PostgreSQL from Another Container
-You can now connect to PostgreSQL using the container name `my_postgres` as the hostname inside any container in the same network.
+You should see the list of passengers displayed in the app.
 
-Example connection string for pgAdmin:
-- Hostname: `my_postgres`
-- Port: `5432`
-- Username: `myuser`
-- Password: `mypassword`
-- Database: `mydatabase`
+Screenshot from 2025-04-23 16-53-22
 
-## Step 6: Remove Containers and Network (Optional)
-To stop and remove everything:
+Screenshot from 2025-04-23 16-53-50
 
-```sh
-docker stop my_postgres my_pgadmin
-docker rm my_postgres my_pgadmin
-docker network rm my_bridge_network
-```
+Screenshot from 2025-04-23 16-54-35
 
-## Conclusion
-This guide helps set up a PostgreSQL container on a Docker network bridge, allowing it to communicate with other containers securely and efficiently.
+Screenshot from 2025-04-23 16-54-47
 
+image
+
+🎯 Summary
+✅ PostgreSQL container stores passenger data. ✅ Streamlit container fetches and displays data from PostgreSQL. ✅ Both containers communicate over my_postgres_network. ✅ Application accessible at http://localhost:8501.
+
+This project provides a containerized solution for data visualization using Streamlit and PostgreSQL. 🚀
