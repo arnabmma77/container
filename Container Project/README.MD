@@ -38,7 +38,11 @@ evcharge_app/
 ---
 
 ## 🚀 How to Run
- simply download and extract the folder.
+
+
+```
+
+Or simply download and extract the folder.
 
 ---
 
@@ -76,8 +80,7 @@ You can also upload your own datasets via the app interface.
 ---
 
 ## 📸 Screenshots
-![Alt text]()
-
+![App Screenshot](https://github.com/arnabmma77/container/blob/main/Container%20Project/Screenshot%20(241).png?raw=true)
 
 ---
 
@@ -89,4 +92,3 @@ You can also upload your own datasets via the app interface.
 
 ## 📜 License
 This project is licensed for educational and demonstration purposes.
-
