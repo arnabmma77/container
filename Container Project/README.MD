@@ -38,14 +38,7 @@ evcharge_app/
 ---
 
 ## 🚀 How to Run
-
-### 1. Clone or Download the Project
-```bash
-git clone <repository_link>
-cd evcharge_app
-```
-
-Or simply download and extract the folder.
+ simply download and extract the folder.
 
 ---
 
@@ -83,7 +76,8 @@ You can also upload your own datasets via the app interface.
 ---
 
 ## 📸 Screenshots
-> (Add screenshots here if needed later!)
+![Alt text]()
+
 
 ---
 
