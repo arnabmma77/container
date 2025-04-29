@@ -1,11 +1,6 @@
-# EVChargeAI - Smart EV Energy Prediction
+# Containerized Python Application
 
-Welcome to **EVChargeAI** — a smart Streamlit web application for energy prediction and model explanation for electric vehicles.  
-This project helps users:
-- Load and explore EV datasets 📂
-- Train Machine Learning models ⚙️
-- Visualize important features using SHAP 📊
-- Explain model decisions in a clear way
+This project is a containerized Python application that processes a sample dataset. It is structured to run in a Docker environment and includes all necessary configurations for setup and execution.
 
 ---
 
@@ -73,17 +68,19 @@ Go to your browser and open:
 
 ---
 
-## 📂 Sample Data
+## Application Overview
 
-A small EV dataset is provided in the `data/` folder for quick testing:
-- `sample_ev_data.csv`
+- The main logic resides in `app.py`, which utilizes the `sample_data.csv` file.
+- All Python dependencies are listed in `requirements.txt` and will be installed during Docker image build.
+- This setup is ideal for deployment in isolated environments using Docker.
 
 You can also upload your own datasets via the app interface.
 
 ---
 
 ## 📸 Screenshots
-> (Add screenshots here if needed later!)
+
+![Screenshot](C:\Users\ARNAB MUKHERJEE\OneDrive\Pictures\Screenshots\Screenshot (248).png)
 
 ---
 
