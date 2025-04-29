@@ -80,7 +80,7 @@ You can also upload your own datasets via the app interface.
 
 ## 📸 Screenshots
 
-![Screenshot](C:\Users\ARNAB MUKHERJEE\OneDrive\Pictures\Screenshots\Screenshot (248).png)
+![image alt](https://github.com/arnabmma77/container/blob/main/container_project_2/Screenshot%20(247).png?raw=true)
 
 ---
 
